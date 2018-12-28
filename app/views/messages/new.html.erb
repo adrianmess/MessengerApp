@@ -7,13 +7,14 @@
 
 <div class="messages">
   <div class="container">
-		<% @messages.each do |message| %>
-			<div class="message">
-  			<p class="content"><%= message.content %></p>
-  			<p class="time"><%= message.created_at %></p>
-			</div>
-		<% end %>
-
-		<%= link_to 'New Message', "messages/new" %>
+	<%= form_for(@message) do |f| %>
+    	<div class="field">
+      		<%= f.label :message %><br>
+      		<%= f.text_area :content %>
+    	</div>
+    	<div class="actions">
+      		<%= f.submit "Create" %>
+    	</div>
+  	<% end %>
   </div>
 </div>
